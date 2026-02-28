@@ -2,17 +2,161 @@
 <html lang="zh-TW">
 <head>
   <meta charset="UTF-8">
-  <title>豆茶渣生產紀錄系統</title>
+  <title>豆茶渣生產紀錄表</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont;
+      background: #f7f7f7;
+      padding: 16px;
+    }
+    h1 {
+      text-align: center;
+    }
+    fieldset {
+      border: none;
+      background: #ffffff;
+      margin-bottom: 16px;
+      padding: 16px;
+      border-radius: 8px;
+    }
+    legend {
+      font-weight: bold;
+      margin-bottom: 8px;
+    }
+    label {
+      display: block;
+      margin-top: 12px;
+      font-size: 14px;
+    }
+    input, select {
+      width: 100%;
+      padding: 8px;
+      margin-top: 4px;
+      font-size: 16px;
+    }
+    button {
+      width: 100%;
+      padding: 14px;
+      font-size: 16px;
+      background: #2c7be5;
+      color: white;
+      border: none;
+      border-radius: 8px;
+    }
+  </style>
 </head>
-<body>
-  <h1>豆茶渣生產紀錄系統</h1>
-  <p>此頁為試量產 SOP 表單展示頁</p>
 
-  <h2>目前狀態</h2>
-  <ul>
-    <li>JSON Schema：已建立</li>
-    <li>GitHub Pages：啟用中</li>
-    <li>下一步：接表單</li>
-  </ul>
+<body>
+
+<h1>豆茶渣生產紀錄表</h1>
+
+<form>
+
+  <fieldset>
+    <legend>批次基本資料</legend>
+
+    <label>生產批號
+      <input type="text" name="batchId">
+    </label>
+
+    <label>生產類型
+      <select name="productionType">
+        <option>試量產</option>
+        <option>正式量產</option>
+      </select>
+    </label>
+
+    <label>生產日期
+      <input type="date" name="productionDate">
+    </label>
+  </fieldset>
+
+  <fieldset>
+    <legend>原料站</legend>
+
+    <label>黃豆來源
+      <input type="text" name="soySource">
+    </label>
+
+    <label>原料批號
+      <input type="text" name="rawBatchNo">
+    </label>
+
+    <label>入料重量（kg）
+      <input type="number" name="inputWeightKg">
+    </label>
+
+    <label>原料檢驗結果
+      <select name="inspectionResult">
+        <option>合格</option>
+        <option>不合格</option>
+      </select>
+    </label>
+  </fieldset>
+
+  <fieldset>
+    <legend>製程站</legend>
+
+    <label>萃取溫度（℃）
+      <input type="number" name="extractionTemp">
+    </label>
+
+    <label>萃取時間（分鐘）
+      <input type="number" name="extractionTime">
+    </label>
+
+    <label>攪拌轉速（RPM）
+      <input type="number" name="stirSpeed">
+    </label>
+  </fieldset>
+
+  <fieldset>
+    <legend>乾燥站</legend>
+
+    <label>乾燥溫度（℃）
+      <input type="number" name="dryTemp">
+    </label>
+
+    <label>最終含水率（%）
+      <input type="number" name="moisture">
+    </label>
+  </fieldset>
+
+  <fieldset>
+    <legend>包裝站</legend>
+
+    <label>包裝日期
+      <input type="date" name="packDate">
+    </label>
+
+    <label>包裝人員
+      <input type="text" name="packer">
+    </label>
+
+    <label>成品數量
+      <input type="number" name="finalQty">
+    </label>
+  </fieldset>
+
+  <fieldset>
+    <legend>品保</legend>
+
+    <label>微生物檢測結果
+      <input type="text" name="microTest">
+    </label>
+
+    <label>最終判定
+      <select name="finalDecision">
+        <option>PASS</option>
+        <option>FAIL</option>
+      </select>
+    </label>
+  </fieldset>
+
+  <button type="submit">送出（目前僅展示）</button>
+
+</form>
+
 </body>
 </html>
