@@ -1,1 +1,53 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Production Master Record",
+  "type": "object",
 
+  "properties": {
+    "raw_material": {
+      "type": "object",
+      "properties": {
+        "arrival_date": { "type": "string", "format": "date" },
+        "supplier": { "type": "string" },
+        "material_type": {
+          "type": "string",
+          "enum": ["soy", "tea", "mixed"]
+        },
+        "weight_in_kg": { "type": "number" },
+        "initial_judgement": {
+          "type": "string",
+          "enum": ["accepted", "pending", "rejected"]
+        }
+      },
+      "required": ["arrival_date", "supplier", "weight_in_kg", "initial_judgement"]
+    },
+
+    "process": {
+      "type": "object",
+      "properties": {
+        "process_type": {
+          "type": "string",
+          "enum": ["fermentation", "mixing", "extraction"]
+        },
+        "operator": { "type": "string" },
+        "target_temp": { "type": "number" },
+        "actual_temp": { "type": "number" },
+        "is_normal": { "type": "boolean" }
+      }
+    },
+
+    "qc": {
+      "type": "object",
+      "properties": {
+        "final_result": {
+          "type": "string",
+          "enum": ["pass", "fail"]
+        },
+        "disposition": {
+          "type": "string",
+          "enum": ["rework", "discard", "downgrade"]
+        }
+      }
+    }
+  }
+}
